@@ -1,4 +1,11 @@
 {
+    "autoload": {
+        "psr-4": {
+            "Entity\\": "src/Entity/",
+            "Service\\": "src/Service/",
+            "Views\\": "src/Views/"
+        }
+    },
     "require": {
         "willdurand/negotiation": "^2.2",
         "twbs/bootstrap": "^3.3"

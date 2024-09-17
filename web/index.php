@@ -1,8 +1,14 @@
 <?php
 
-$lastJoinedUsers = (require "dic/users.php")->getLastJoined();
+require_once __DIR__ . '/../vendor/autoload.php';
 
-switch (require "dic/negotiated_format.php") {
+// Definir la ruta base del proyecto
+define('BASE_PATH', realpath(dirname(__FILE__) . '/..'));
+
+// Usar la ruta base para incluir los archivos
+$lastJoinedUsers = (require BASE_PATH . "/dic/users.php")->getLastJoined();
+
+switch (require BASE_PATH . "/dic/negotiated_format.php") {
     case "text/html":
         (new Views\Layout(
             "Twitter - Newcomers", new Views\Users\Listing($lastJoinedUsers), true
